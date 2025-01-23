@@ -1,0 +1,85 @@
+@import '../../../../../components/style/varaible.css';
+
+
+.userPreference-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .userPreference-heading {
+    text-align: left;
+    width: 100%;
+  }
+  .userPreference-content-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: left;
+  
+    gap: 20px;
+  }
+  .userPreference-leftcontent-container {
+    width: 100%;
+  }
+  .userPreference-rightcontent-container {
+    width: 100%;
+  }
+  .userPreference-select{
+    width: 100%;
+  }
+  .userPreference-icon {
+    margin-right: 10px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+.userPreference-btn {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 80%;
+  }
+  
+  .userPreference-clear-btn {
+    width: 70px;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: none !important;
+    border: 2px solid red !important; /* Matches secondary color */
+    color: red !important; /* Matches secondary color */
+    transition: all 0.3s ease;
+  }
+  
+  .userPreference-clear-btn:hover {
+    background-color: red;
+    color: var(--text-color) !important;
+  }
+  
+  .userPreference-submit-btn {
+    width: 70px;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: none !important;
+    background-color: var(--text-color) !important;
+    border: 2px solid green !important; /* Matches primary color */
+    color: green !important;
+    transition: all 0.3s ease;
+  }
+  
+  .userPreference-submit-btn:hover {
+    background-color: green !important;
+    color: var(--text-color) !important; /* Darker shade of primary */
+  }
+ 
+  

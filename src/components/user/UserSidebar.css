@@ -1,0 +1,73 @@
+@import "../style/varaible.css";
+
+.user-sidebar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.user-sidebar .MuiDrawer-paper {
+  width: 210px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  margin-top: 65px;
+  color: var(--text-color);
+}
+.MuiListItemText-root {
+  color: var(--text-color) !important;
+}
+
+.MuiListItem-button:hover {
+  background: var(--text-color) !important;
+}
+
+.user-dashboard-icons {
+  font-size: 25px !important;
+  color: var(--text-color);
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.userSidebar-profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.userSidebar-profile-pic-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #888;
+  color: var(--text-color);
+  font-size: 30px;
+  font-weight: bold;
+}
+.userSidebar-user-name {
+  width: 100%;
+  margin-right: 20px;
+  font-size: 1.4rem !important;
+  color: var(--text-color);
+}
+.userSidebar-user-age {
+  color: var(--text-color);
+  font-size: 15px !important;
+}
+.userSidebar-user-id {
+  color: var(--text-color);
+  font-size: 15px !important;
+}
+.UserSidebar-details {
+  display: flex;
+  flex-direction: column;
+}
+.user-sidebar-lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px !important;
+}

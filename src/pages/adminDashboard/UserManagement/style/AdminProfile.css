@@ -1,0 +1,104 @@
+@import '../../../../components/style/varaible.css';
+
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 84%;
+    height: 91vh;
+    margin-top: 65px;
+    margin-left: 243px;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: var(--dasboard-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+  }
+  
+.profile-content {
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--text-color);
+    box-shadow: 1px 3px 5px var(--background-color,0.1);
+  }
+  
+  .profile-header {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px !important;
+    color: var(--background-color);
+  }
+  
+  .profile-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+.profile-avatar {
+  width: 150px !important;
+  height: 150px !important;
+  background-color: #007BFF;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.add-btn {
+  background-color: #007BFF;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #FF3D00;
+  color: white;
+}
+  
+  .image-placeholder {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .upload-btn {
+    background-color: var(--background-color) !important;
+    color: white;
+    width: 150px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    width: 50%;
+    max-width: 400px;
+    
+  }
+  
+  .info-text{
+    margin-bottom: 20px !important;
+  }
+  

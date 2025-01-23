@@ -1,0 +1,66 @@
+@import "../../../components/style/varaible.css";
+
+.userprofile-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 86%;
+  height: 91vh;
+  margin-top: 65px;
+  margin-left: 210px;
+  padding: 3px;
+  box-sizing: border-box;
+  overflow: auto;
+  background: var(--dasboard-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+}
+.userprofile-dashboard-container::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth; /* For Chrome, Safari, and Opera */
+}
+
+.userprofile-dashboard-heading {
+  margin: 15px;
+  font-size: 2.125rem !important;
+  color: var(--background-color);
+  align-self: flex-start; /* For flex containers */
+  /* For grid containers */
+}
+.userprofile-sub-container {
+  width: 99%;
+  height: auto;
+  background-color: var(--text-color);
+  margin-left: 5px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.userprofile-tabs {
+  margin-bottom: 15px;
+}
+.MuiTab-root {
+  text-transform: none; /* Prevent uppercase */
+  font-size: 14px; /* Adjust font size */
+  /* Optional for a cleaner font */
+}
+
+.userprofile-tab-content {
+  border-radius: 8px;
+}
+.tabs-list {
+  display: flex;
+  justify-content: center;
+}
+.tab-list-1,
+.tab-list-2,
+.tab-list-3,
+.tab-list-4,
+.tab-list-5,
+.tab-list-6,
+.tab-list-7,
+.tab-list-8 {
+  margin-left: 5px !important;
+  text-transform: none !important;
+  font-size: 15px !important;
+}

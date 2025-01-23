@@ -1,0 +1,67 @@
+@import "../../../../../components/style/varaible.css";
+
+.userphoto-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: left;
+  width: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.userphoto-heading {
+  text-align: left;
+  width: 100%;
+}
+.userphoto-content-container {
+  display: flex;
+  flex-direction: row;
+
+  gap: 50px;
+}
+.userphoto-leftside-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.userphoto-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.userphoto-save-btn {
+  width: 90px;
+  background-color: var(--text-color) !important;
+  border: 2px solid green !important;
+  color: green !important;
+}
+.userphoto-save-btn:hover {
+  background-color: green !important;
+  color: var(--text-color) !important;
+}
+.userphoto-delete-btn {
+  width: 90px;
+  background-color: var(--text-color) !important;
+  border: 2px solid red !important;
+  color: red !important;
+}
+.userphoto-delete-btn:hover {
+  background-color: red !important;
+  color: var(--text-color) !important;
+}
+.userphoto-rightside-container{
+    width: 310px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    border: 1px solid black;
+}
+.userphoto-rightside-preview{
+    width: 300px;
+    height: 240px;
+    object-fit: cover;
+    overflow:auto;
+}

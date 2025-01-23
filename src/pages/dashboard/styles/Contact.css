@@ -1,0 +1,38 @@
+@import '../../../components/style/varaible.css';
+
+.contact-container{
+    height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-form-container {
+    max-width: 600px;
+    margin: 120px;
+    padding: 20px;
+    background-color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: 1px 3px 5px var(--background-color,0.1);
+  }
+  .contact-form-container h2{
+    color: var(--background-color);
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-field {
+    margin-bottom: 15px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    width: 100px !important;
+    background-color: var(--background-color) !important;
+    border-radius: 40px !important;
+  }
+  

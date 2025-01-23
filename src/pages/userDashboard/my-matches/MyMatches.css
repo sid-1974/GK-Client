@@ -1,0 +1,103 @@
+@import '../../../components/style/varaible.css';
+
+.user-Matches-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 86%;
+  height: 91vh;
+  margin-top: 65px;
+  margin-left: 210px;
+  padding: 3px;
+  box-sizing: border-box;
+  overflow: auto;
+  background: var(--dasboard-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+    
+  }
+  .user-Matches-container::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth; /* For Chrome, Safari, and Opera */
+  }
+  
+  .user-Matches-heading {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      text-align: center;
+      margin: 15px;
+      font-size: 2.125rem !important;
+      color: var(--background-color);
+      align-self: flex-start; /* For flex containers */
+       /* For grid containers */
+    }
+
+    .user-Matches-image-cards {
+        display: flex;
+        gap: 70px;
+        margin: 15px;
+        justify-content: center; 
+      }
+    
+    
+    .user-card-Matches {
+      width: 340px;
+      text-align: center;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.6) !important;
+      border-radius: 8px;
+     
+    }
+    
+    .user-card-Matches-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      transition: transform 0.3s ease; /* Smooth animation */
+    }
+    
+    .user-card-Matches-image:hover {
+      transform: scale(1.05); /* Zoom effect */
+    }
+    
+    
+    .user-card-Matches-name {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .user-card-Matches-contetnt{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      gap: 30px;
+      
+    }
+    .user-card-Matches-detail{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .user-card-Matches-detail:hover{
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+    
+    .user-card-Matches-id,
+    .user-card-Matches-age,.user-card-Matches-height {
+      margin:  0;
+    }
+    .view-more-button-container{
+      margin-top: 20px;
+      
+    }
+    .user-matches-pagination{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    

@@ -1,0 +1,18 @@
+:root {
+   
+
+  
+  --background-color: #CC5500; 
+  /* --background-color: #001F3F;  */
+    --text-color: #fff; 
+    --primary-color: linear-gradient(to bottom,  var(--background-color),#fb9a51); 
+    --secondary-color: linear-gradient(to bottom,#c3c3c3,  var(--background-color)); 
+   --dasboard-color:rgb(255, 224, 165);
+   --box-shadow: 1px 3px 5px var(--background-color,0.1);
+   --border-color:#f9a569;
+  
+  
+   
+    
+  }
+  

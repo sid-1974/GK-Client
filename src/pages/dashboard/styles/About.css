@@ -1,0 +1,63 @@
+
+@import '../../../components/style/varaible.css';
+
+.about-container {
+    height: 100vh; /* Full height of the screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 2rem;
+    background: var( --primary-color) !important;
+    
+    /* Set container to horizontal layout */
+    flex-direction: row; /* Left and Right layout */
+  }
+  
+  .about-left-content{
+    flex: 1;
+    padding: 20px;
+    margin-left: 50px;
+    text-align: left;
+    color: var(--text-color); /* Ensure this variable is defined */
+  }
+  
+  .about-left-content h1 {
+    margin-bottom: 10px;
+     /* Adjust size for heading */
+  }
+  
+  .about-left-content p {
+    font-size: 1.2rem; /* Adjust size for description */
+    line-height: 1.6;
+    color: var(--text-color); /* Ensure text color matches the theme */
+  }
+  
+  .about-right-image {
+    flex: 1; /* Take 50% width of the container */
+    background: url('../../../assets/images/homepagepic-1-removebg-preview.png') no-repeat center center;
+    margin-bottom: 100px;
+ /* Cover the container */
+    height: 100%; /* Ensure it covers the entire container */
+  }
+
+  .about-content {
+    margin-right: 100px; /* Limit the width of the content */
+    margin-left: 50px;
+    margin-bottom: 50px; /* Add space from the left edge */
+  }
+  
+  .about-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: var(--background-color);
+    font-weight: bolder; /* Optional: Use a secondary color for the title */
+  }
+  
+  .about-text {
+    line-height: 1.8;
+    color: var(--background-color); /* Custom text color */
+    text-align: justify; 
+    font-weight: bold;/* Align text for a clean appearance */
+  }

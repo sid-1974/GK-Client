@@ -1,0 +1,100 @@
+@import '../../../../components/style/varaible.css';
+
+.admin-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 84%;
+    height: auto; /* Remove fixed height to allow the content to grow */
+    min-height: 91vh; /* Ensure the page takes at least 91% of the viewport height */
+    margin-top: 65px;
+    margin-left: 243px;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: auto !important; /* Make the entire page scrollable */
+    background: var(--dasboard-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+/* .admin-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 90%; 
+    margin: 0 auto 20px;
+    margin-top: 10px;
+} */
+
+/* .admin-user-heading {
+    margin: 20px !important;
+    margin-left: 50px !important;
+    font-size: 2.125rem !important;
+    color: var(--background-color);
+} */
+
+.user-type-select {
+    min-width: 120px !important; /* Increased width for better readability */
+  
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle effect */
+    margin-right: 16px; /* Adjust spacing from other elements */
+}
+
+.user-type-select .MuiOutlinedInput-root {
+    font-size: 14px;
+    color: var(--primary-text-color);
+}
+
+.user-type-select .MuiInputLabel-root {
+    color: var(--secondary-text-color);
+}
+
+.user-type-select .MuiSelect-icon {
+    color: var(--primary-text-color);
+}
+
+.admin-user-table {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 90% !important;
+    margin-left: 70px !important;
+    max-height: auto; /* Ensure the table is not scrollable */
+}
+
+.MuiTableCell-root {
+    color: var(--primary-text-color);
+    font-size: 17px !important;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.admin-user-search {
+    width: 90%;
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    
+}
+
+.MuiDivider-root {
+    background-color: black !important;
+}
+
+.search-bar {
+    width: 100px;
+    height: 100px ;
+    padding: 20px ;
+    background: var(--text-color);
+    border-radius: 8px;
+}
+
+
+
+
+
+

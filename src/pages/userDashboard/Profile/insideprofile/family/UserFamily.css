@@ -1,0 +1,50 @@
+@import "../../../../../components/style/varaible.css";
+
+.userfamily-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.userfamily-heading-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+.userfamily-input{
+  font-size: 16px;
+  text-transform: capitalize;
+  width: 100%;
+}
+
+
+
+.userfamily-icon {
+  margin-right: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.userfamily-heading {
+  text-align: left;
+  width: 100%;
+}
+.userfamily-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 20px;
+}
+.userfamily-leftcontent-container {
+  width: 100%;
+}
+.userfamily-rightcontent-container {
+  width: 100%;
+}

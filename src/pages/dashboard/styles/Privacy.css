@@ -1,0 +1,41 @@
+@import '../../../components/style/varaible.css';
+.privacy-container {
+  margin: 60px;
+  margin-top: 80px;
+  padding: 24px;
+  background-color: #f9f9f9;
+
+}
+
+.privacy-accordion {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ddd !important;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.privacy-accordion .MuiAccordionSummary-root {
+  /* background-color: var(--background-color); */
+  color: var(--background-color);
+  font-weight: bold;
+}
+
+.privacy-accordion .MuiAccordionSummary-expandIconWrapper {
+  color: var(--background-color);
+}
+
+.privacy-title {
+  font-size: 15px;
+  text-transform:uppercase ;
+}
+
+.privacy-content {
+  text-align: justify;
+  color: #333;
+  padding: 8px 16px;
+}
+.section-content-container{
+  background-color: bisque !important;
+  border-radius: 7px !important;
+}
+

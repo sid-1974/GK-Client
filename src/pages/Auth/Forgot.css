@@ -1,0 +1,89 @@
+@import '../../components/style/varaible.css';
+
+
+
+.forgot-container {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--text-color);
+  }
+  
+  .forgot-content {
+    max-width: 500px;
+    margin: 100px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px var(--background-color, 0.1);
+    text-align: center;
+  }
+  
+  .forgot-title {
+    text-align: center;
+    margin-bottom: 20px !important;
+    color: var(--background-color);
+  }
+  
+  .forgot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .forgot-field {
+    text-align: left;
+  }
+  
+  .custom-input {
+    border: none;
+    border-bottom:1px solid var(--border-color) !important;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+    background-color: transparent;
+  }
+/*   
+  .custom-input:hover {
+    border-bottom: 2px solid var(--background-color) !important;
+  }
+  
+  .custom-input:focus-within {
+    border-bottom: 2px solid var(--background-color) !important;
+  } */
+  
+  .otp-button {
+    margin-top: 20px;
+    width: 110px !important;
+    background-color: var(--background-color) !important;
+    border-radius: 40px !important;
+  }
+  
+  .otp-button:hover {
+    background-color:#e56a12 !important;
+  }
+  
+  .forgot-button {
+    margin-top: 20px;
+    width: 100px !important;
+    background-color: var(--background-color) !important;
+    border-radius: 40px !important;
+  }
+  
+  .forgot-button:hover {
+    background-color: #e56a12 !important;
+  }
+  
+  .forgot-password-link {
+    text-align: left;
+  }
+  
+  .forgot-password-link a {
+    color: var(--background-color);
+    text-decoration: none;
+  }
+  
+  .forgot-password-link a:hover {
+    text-decoration: underline;
+  }

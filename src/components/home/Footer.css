@@ -1,0 +1,82 @@
+
+@import '../style/varaible.css' ;
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--primary-color) !important ;
+    color: white;
+    padding-top: 40px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    margin: 0 10px;
+   
+
+  }
+  
+  .footer-column h1 {
+    margin-bottom: 25px ;
+    font-size: 3remx;
+  }
+  .footer-links p{
+    width: fit-content;
+    border-bottom: 1px solid var(--text-color);
+  }
+  
+  .footer-column p {
+    margin: 5px 0;
+    margin-bottom: 20px;
+  }
+  
+  .footer-input {
+    width: 100%;
+    margin-bottom: 10px;
+
+    
+  }
+  
+  
+  .footer-button {
+    display: block;
+    width: 100px;
+    margin-top: 5px !important;
+    border-radius: 40px !important;
+    background-color: var( --background-color) !important;
+   
+  }
+  .footer-button:hover{
+    border: 1px solid var(--text-color);
+    
+  }
+
+  .footer-copyright {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--background-color);
+    
+    padding-top: 10px;
+  }
+  
+  .footer-input .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: var(--text-color); /* Default border color */
+  }
+  
+  .footer-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: var(--text-color); /* Hover border color */
+  }
+  
+  .footer-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--text-color); /* Focused border color */
+  }
+  
+  .footer-input .MuiInputLabel-root {
+    color:var(--text-color); /* Default label color */
+  }
+  
+  .footer-input .MuiInputLabel-root.Mui-focused {
+    color: var(--text-color); /* Focused label color */
+  }
+  
