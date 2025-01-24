@@ -42,7 +42,7 @@ function UserAbout() {
     const { name, value } = e.target;
     
     setFormData((prev) => ({ ...prev, [name]: value }));
-   
+    
   };
 
   useEffect(() => {
@@ -50,8 +50,11 @@ function UserAbout() {
       try {
         const response = await get("/user/user-about-details");
         if (response.success) {
+          // console.log(response,"mappppppp")
+          
           setFormData(response.data);
-          localStorage.setItem("userAboutDetails", JSON.stringify(response.data));
+
+          // localStorage.setItem("userAboutDetails", JSON.stringify(response.data));
         } else {
          
           setFormData({
@@ -67,7 +70,7 @@ function UserAbout() {
             language: "",
             maritalStatus: "",
           });
-          localStorage.removeItem("userAboutDetails");
+          // localStorage.removeItem("userAboutDetails");
         }
       } catch (error) {
         toast.error(error.message );
@@ -75,19 +78,19 @@ function UserAbout() {
     };
   
    
-    const storedDetails = localStorage.getItem("userAboutDetails");
-    if (storedDetails) {
-      const parsedDetails = JSON.parse(storedDetails);
-      if (parsedDetails.userId !== userData.id) {
-        localStorage.removeItem("userAboutDetails");
-        fetchUserDetails();
-      } else {
-        setFormData(parsedDetails);
-      }
-    } else {
+    // const storedDetails = localStorage.getItem("userAboutDetails");
+    // if (storedDetails) {
+    //   const parsedDetails = JSON.parse(storedDetails);
+    //   if (parsedDetails.userId !== userData.id) {
+    //     localStorage.removeItem("userAboutDetails");
+    //     fetchUserDetails();
+    //   } else {
+    //     setFormData(parsedDetails);
+    //   }
+    // } else {
       fetchUserDetails();
-    }
-  }, [userData]); // Trigger whenever `userData` changes
+    // }
+  }, [userData]); 
   
   
   
@@ -109,31 +112,30 @@ function UserAbout() {
       maritalStatus,
     } = formData;
 
+    const isAny = !age ||
+    !address ||
+    !pincode ||
+    !city ||
+    !state ||
+    !country ||
+    !dateOfBirth ||
+    !height ||
+    !gender ||
+    !language ||
+    !maritalStatus
    
-    if (
-      !age ||
-      !address ||
-      !pincode ||
-      !city ||
-      !state ||
-      !country ||
-      !dateOfBirth ||
-      !height ||
-      !gender ||
-      !language ||
-      !maritalStatus
-    ) {
+    if (isAny) {
       return toast.error("All fields are required");
     }
 
     try {
       const url = "/user/user-about"; 
       const response = await post(url, formData )
-    
+      
       const { success, message } = response;
       
       if (success) {
-        localStorage.setItem("userAboutDetails", JSON.stringify(formData));
+        // localStorage.setItem("userAboutDetails", JSON.stringify(formData));
         toast.success(message)
         setIsEditable(false); 
       }  else {

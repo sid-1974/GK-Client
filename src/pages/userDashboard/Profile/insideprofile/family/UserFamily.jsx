@@ -13,121 +13,110 @@ import json from "../../../../../components/jsondata/data.json";
 import { FaChevronDown } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { post, get } from "../../../../../api/api";
+import { post, get } from "../../../../../../src/api/api";
 
 function UserFamily() {
   const data = json;
   const { userData } = useUser();
   const [isEditable, setIsEditable] = useState(false);
-  const [religion, setReligion] = useState("");
-  const [caste, setCaste] = useState("");
-  const handleEditToggle = () => {
-    setIsEditable((prev) => !prev);
-  };
-
   const [formData, setFormData] = useState({
-    father: "",
-    mother: "",
-    sibling1: "",
-    sibling2: "",
-    religion: "",
-    caste: "",
-    subcaste: "",
-    nakshatra: "",
-    gotra: "",
+    father:"",
+    mother:"",
+    sibling1:"",
+    sibling2:"",
+    religion:"",
+    caste:"",
+    subcaste:"",
+    nakshatra:"",
+    gotra:"",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
   };
+  
 
   useEffect(() => {
     const fetchUserFamilyDetails = async () => {
       try {
-        const response = await get("/user/user-family-details");
+        const response = await get("user/user-family-details");
         if (response.success) {
-          setFormData(response.data);
-          localStorage.setItem(
-            "userFamilyDetails",
-            JSON.stringify(response.data)
-          );
+          if (response.data.length === 0) {
+            console.log("No family details found.");
+            // toast.warn("No family details found. Please fill out the form.");
+          } else {
+            const familyDetails = response.data[0];
+            setFormData({
+              father: familyDetails.father || "",
+              mother: familyDetails.mother || "",
+              sibling1: familyDetails.sibling1 || "",
+              sibling2: familyDetails.sibling2 || "",
+              religion: familyDetails.religion || "",
+              caste: familyDetails.caste || "",
+              subcaste: familyDetails.subcaste || "",
+              nakshatra: familyDetails.nakshatra || "",
+              rashi: familyDetails.rashi|| "",
+              gotra: familyDetails.gotra || "",
+            });
+          }
         } else {
-          setFormData({
-            father: "",
-            mother: "",
-            sibling1: "",
-            sibling2: "",
-            religion: "",
-            caste: "",
-            subcaste: "",
-            nakshatra: "",
-            gotra: "",
-          });
-          localStorage.removeItem("userFamilyDetails");
+          toast.warn("Failed to fetch family details.");
         }
       } catch (error) {
-        toast.error(error.message);
+        toast.error("Failed to fetch family details. Please try again.");
       }
     };
-    const storedDetails = localStorage.getItem("userFamilyDetails");
-    if (storedDetails) {
-      const parsedDetails = JSON.parse(storedDetails);
-      if (parsedDetails.userId !== userData.id) {
-        localStorage.removeItem("userFamilyDetails");
-        fetchUserFamilyDetails();
-      } else {
-        setFormData(parsedDetails);
-      }
-    } else {
-      fetchUserFamilyDetails();
-    }
+  
+    fetchUserFamilyDetails();
   }, [userData]);
+  // useEffect(() => {
+  //   console.log("Updated formData:", formData);
+  // }, [formData]);
+  
+ 
 
   const handleSave = async (e) => {
     e.preventDefault();
     const {
       father,
       mother,
-      sibling1,
-      sibling2,
       religion,
       caste,
-      subcaste,
-      nakshatra,
       rashi,
-      gotra,
     } = formData;
     if (
       !father ||
       !mother ||
-      // !sibling1 ||
-      // !sibling2 ||
       !religion ||
       !caste ||
-      // !subcaste ||
-      // !nakshatra ||
       !rashi 
-      // !gotra
     ) {
       return toast.error("All fields are required");
     }
     try {
       const url = "/user/user-family";
+     
       const response = await post(url, formData);
-
+       
       const { success, message } = response;
-
+      
       if (success) {
-        localStorage.setItem("userFamilyDetails ", JSON.stringify(formData));
+        // localStorage.setItem("userFamilyDetails ", JSON.stringify(formData));
         toast.success(message);
         setIsEditable(false);
+       
       } else {
         toast.error(message);
       }
     } catch (error) {
       toast.error("An error occurred. Please try again.");
     }
+  };
+  const handleEditToggle = () => {
+    setIsEditable((prev) => !prev);
   };
   return (
     <div className="userfamily-container">
@@ -148,7 +137,7 @@ function UserFamily() {
                   label="Father"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.father}
                   onChange={handleInputChange}
@@ -160,7 +149,7 @@ function UserFamily() {
                   label="Mother"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.mother}
                   onChange={handleInputChange}
@@ -172,7 +161,7 @@ function UserFamily() {
                   label="Sibling-1"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.sibling1}
                   onChange={handleInputChange}
@@ -184,7 +173,7 @@ function UserFamily() {
                   label="Sibling-2"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.sibling2}
                   onChange={handleInputChange}
@@ -244,7 +233,7 @@ function UserFamily() {
                   label="Sub-Caste"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.subcaste}
                   onChange={handleInputChange}
@@ -256,7 +245,7 @@ function UserFamily() {
                   label="Nakshatra"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.nakshatra}
                   onChange={handleInputChange}
@@ -268,7 +257,7 @@ function UserFamily() {
                   label="Rashi"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.rashi}
                   onChange={handleInputChange}
@@ -280,7 +269,7 @@ function UserFamily() {
                   label="Gotra"
                   variant="outlined"
                   fullWidth
-                  className="userfamily-input"
+                  className="userfamily-input disabled-input"
                   disabled={!isEditable}
                   value={formData.gotra}
                   onChange={handleInputChange}
