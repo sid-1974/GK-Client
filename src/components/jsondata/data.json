@@ -284,6 +284,7 @@
         "Training Professional (Others)",
         "Veterinary Doctor",
         "Web / UX Designers",
+        "Others",
         "Not working"
       ]
     },
@@ -751,6 +752,24 @@
           "Lakshadweep",
           "Puducherry"
         ]
+      },
+      {
+        "rashiValues": [
+          "Mesh (Aries)",
+          "Vrishabh (Taurus)",
+          "Mithun (Gemini)",
+          "Karka (Cancer)",
+          "Simha (Leo)",
+          "Kanya (Virgo)",
+          "Tula (Libra)",
+          "Vrischika (Scorpio)",
+          "Dhanu (Sagittarius)",
+          "Makar (Capricorn)",
+          "Kumbha (Aquarius)",
+          "Meena (Pisces)",
+          "Other"
+      ]
+
       }
       
       

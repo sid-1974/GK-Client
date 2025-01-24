@@ -17,7 +17,7 @@ function UserSidebar() {
   return (
     <Drawer className="user-sidebar" variant="permanent" anchor="left">
       <div className="userSidebar-profile-section">
-        <div className="userSidebar-profile-pic-placeholder">S</div>
+        <div className="userSidebar-profile-pic-placeholder">{userData.fullName ? userData.fullName.charAt(0).toUpperCase() : "P"}</div>
         <div className="UserSidebar-details">
           <Typography variant="body1" className="userSidebar-user-name">
             {userData.fullName}

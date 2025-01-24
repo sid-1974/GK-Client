@@ -20,24 +20,22 @@ function UserFamily() {
   const { userData } = useUser();
   const [isEditable, setIsEditable] = useState(false);
   const [formData, setFormData] = useState({
-    father:"",
-    mother:"",
-    sibling1:"",
-    sibling2:"",
-    religion:"",
-    caste:"",
-    subcaste:"",
-    nakshatra:"",
-    gotra:"",
+    father: "",
+    mother: "",
+    sibling1: "",
+    sibling2: "",
+    religion: "",
+    caste: "",
+    subcaste: "",
+    nakshatra: "",
+    rashi:"",
+    gotra: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
     setFormData((prev) => ({ ...prev, [name]: value }));
-    
   };
-  
 
   useEffect(() => {
     const fetchUserFamilyDetails = async () => {
@@ -58,7 +56,7 @@ function UserFamily() {
               caste: familyDetails.caste || "",
               subcaste: familyDetails.subcaste || "",
               nakshatra: familyDetails.nakshatra || "",
-              rashi: familyDetails.rashi|| "",
+              rashi: familyDetails.rashi || "",
               gotra: familyDetails.gotra || "",
             });
           }
@@ -69,45 +67,30 @@ function UserFamily() {
         toast.error("Failed to fetch family details. Please try again.");
       }
     };
-  
+
     fetchUserFamilyDetails();
   }, [userData]);
   // useEffect(() => {
   //   console.log("Updated formData:", formData);
   // }, [formData]);
-  
- 
 
   const handleSave = async (e) => {
     e.preventDefault();
-    const {
-      father,
-      mother,
-      religion,
-      caste,
-      rashi,
-    } = formData;
-    if (
-      !father ||
-      !mother ||
-      !religion ||
-      !caste ||
-      !rashi 
-    ) {
+    const { father, mother, religion, caste, rashi } = formData;
+    if (!father || !mother || !religion || !caste || !rashi) {
       return toast.error("All fields are required");
     }
     try {
       const url = "/user/user-family";
-     
+
       const response = await post(url, formData);
-       
+
       const { success, message } = response;
-      
+
       if (success) {
         // localStorage.setItem("userFamilyDetails ", JSON.stringify(formData));
         toast.success(message);
         setIsEditable(false);
-       
       } else {
         toast.error(message);
       }
@@ -190,7 +173,10 @@ function UserFamily() {
                   displayEmpty
                   value={formData.religion}
                   onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, religion: e.target.value }))
+                    setFormData((prev) => ({
+                      ...prev,
+                      religion: e.target.value,
+                    }))
                   }
                   IconComponent={() => (
                     <FaChevronDown className="userfamily-icon" />
@@ -253,16 +239,26 @@ function UserFamily() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  label="Rashi"
-                  variant="outlined"
-                  fullWidth
-                  className="userfamily-input disabled-input"
-                  disabled={!isEditable}
+                <Select
+                  displayEmpty
                   value={formData.rashi}
-                  onChange={handleInputChange}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, rashi: e.target.value }))
+                  }
+                  IconComponent={() => (
+                    <FaChevronDown className="userfamily-icon" />
+                  )}
+                  className="userfamily-input  disabled-input"
+                  disabled={!isEditable}
+                  renderValue={(selected) => selected || "Rashi"}
                   name="rashi"
-                />
+                >
+                  {data[13].rashiValues.map((item, index) => (
+                    <MenuItem value={item} key={index}>
+                      {item}
+                    </MenuItem>
+                  ))}
+                </Select>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -291,8 +287,8 @@ function UserFamily() {
             variant="contained"
             color="primary"
             className="userabout-submit-btn"
-             disabled={!isEditable}
-           type="submit"
+            disabled={!isEditable}
+            type="submit"
           >
             Save
           </Button>

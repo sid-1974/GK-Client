@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./UserEducation.css";
 import {
   Grid,
@@ -9,40 +9,110 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
+import { useUser } from "../../../../../components/router/userContext/UserContext";
 import { FaChevronDown } from "react-icons/fa";
 import json from "../../../../../components/jsondata/data.json";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { post, get } from "../../../../../../src/api/api";
 
 function UserEducation() {
   const data = json;
-  const [qualification, setQualification] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const [income, setIncome] = useState("");
-  const [OccupationCountry, setOccupationCountry] = useState("");
+  const { userData } = useUser();
+  const [isEditable, setIsEditable] = useState(false);
+  const [formData, setFormData] = useState({
+    qualification:"",
+    occupation:"",
+    incomeperannum:"",
+    occupationcountry:"",
+  });
+
+  const handleEditToggle = () => {
+    setIsEditable((prev) => !prev);
+  };
+
+
+
+  useEffect(() => {
+    const fetchUserEducationDetails = async () => {
+      try {
+        const response = await get("user/user-education-details");
+        if (response.success) {
+          if (response.data.length === 0) {
+            console.log("No education details found.");
+            // toast.warn("No family details found. Please fill out the form.");
+          } else {
+            const educationDetails = response.data[0];
+            setFormData({
+              qualification: educationDetails.qualification || "",
+              occupation: educationDetails.occupation || "",
+              incomeperannum: educationDetails.incomeperannum || "",
+              occupationcountry: educationDetails.occupationcountry || "",
+            });
+          }
+        } else {
+          toast.warn("Failed to fetch education details.");
+        }
+      } catch (error) {
+        toast.error("Failed to fetch education details. Please try again.");
+      }
+    };
+
+    fetchUserEducationDetails();
+  }, [userData]);
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    const { qualification, occupation, incomeperannum, occupationcountry } = formData;
+    if (!qualification || !occupation || !incomeperannum || !occupationcountry) {
+      return toast.error("All fields are required");
+    }
+    try {
+      const url = "/user/user-education";
+
+      const response = await post(url, formData);
+
+      const { success, message } = response;
+
+      if (success) {
+       
+        toast.success(message);
+        setIsEditable(false);
+      } else {
+        toast.error(message);
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+  
 
   return (
     <div className="usereducation-container">
       <div className="usereducation-heading">
         <Typography variant="h5">Eduction & Occupation</Typography>
       </div>
+      <form onSubmit={handleSave}>
       <div className="usereducation-content-container">
         <Grid container spacing={2}>
-
-{/* qualification -------------------------------------- */}
+          {/* qualification -------------------------------------- */}
           <Grid item xs={12}>
             <Select
               displayEmpty
-              value={qualification}
-              onChange={(e) => setQualification(e.target.value)}
+              value={formData.qualification}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  qualification: e.target.value,
+                }))
+              }
               IconComponent={() => (
                 <FaChevronDown className="usereducation-icon" />
               )}
-              className="usereducation-select"
-              renderValue={(selected) => {
-                if (!selected) {
-                  return "Qualification"; // Show placeholder when no value is selected
-                }
-                return selected; // Show selected value
-              }}
+              className="usereducation-select disabled-input"
+              renderValue={(selected) => selected || "Qualification"}
+              disabled={!isEditable}
+              name="qualification"
             >
               {data[4].qualificationValues.map((item, index) => (
                 <MenuItem value={item} key={index}>
@@ -52,22 +122,21 @@ function UserEducation() {
             </Select>
           </Grid>
 
-{/* Occupation----------------------------------------------------- */}
+          {/* Occupation----------------------------------------------------- */}
           <Grid item xs={12}>
             <Select
               displayEmpty
-              value={occupation}
-              onChange={(e) => setOccupation(e.target.value)}
+              value={formData.occupation}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, occupation: e.target.value }))
+              }
               IconComponent={() => (
                 <FaChevronDown className="usereducation-icon" />
               )}
-              className="usereducation-select"
-              renderValue={(selected) => {
-                if (!selected) {
-                  return "Occupation"; // Show placeholder when no value is selected
-                }
-                return selected; // Show selected value
-              }}
+              className="usereducation-select disabled-input"
+              renderValue={(selected) => selected || "Occupation"}
+              disabled={!isEditable}
+              name="occupation"
             >
               {data[3].occupationValues.map((item, index) => (
                 <MenuItem value={item} key={index}>
@@ -76,22 +145,24 @@ function UserEducation() {
               ))}
             </Select>
           </Grid>
-{/* Income Per Annum---------------------------------------------------- */}
+          {/* Income Per Annum---------------------------------------------------- */}
           <Grid item xs={12}>
             <Select
               displayEmpty
-              value={income}
-              onChange={(e) => setIncome(e.target.value)}
+              value={formData.incomeperannum}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  incomeperannum: e.target.value,
+                }))
+              }
               IconComponent={() => (
                 <FaChevronDown className="usereducation-icon" />
               )}
-              className="usereducation-select"
-              renderValue={(selected) => {
-                if (!selected) {
-                  return "Income Per Annum"; // Show placeholder when no value is selected
-                }
-                return selected; // Show selected value
-              }}
+              className="usereducation-select disabled-input"
+              renderValue={(selected) => selected || "Income Per Annum"}
+              disabled={!isEditable}
+              name="incomeperannum"
             >
               {data[2].incomeValues.map((item, index) => (
                 <MenuItem value={item} key={index}>
@@ -100,22 +171,24 @@ function UserEducation() {
               ))}
             </Select>
           </Grid>
-{/* Occupation Country----------------------------------------------------- */}
+          {/* Occupation Country----------------------------------------------------- */}
           <Grid item xs={12}>
             <Select
               displayEmpty
-              value={OccupationCountry}
-              onChange={(e) => setOccupationCountry(e.target.value)}
+              value={formData.occupationcountry}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  occupationcountry: e.target.value,
+                }))
+              }
               IconComponent={() => (
                 <FaChevronDown className="usereducation-icon" />
               )}
-              className="usereducation-select"
-              renderValue={(selected) => {
-                if (!selected) {
-                  return "Occupation Country"; // Show placeholder when no value is selected
-                }
-                return selected; // Show selected value
-              }}
+              className="usereducation-select disabled-input"
+              renderValue={(selected) => selected || "Occupation Country"}
+              disabled={!isEditable}
+              name="occupationcountry"
             >
               {data[10].countries.map((item, index) => (
                 <MenuItem value={item} key={index}>
@@ -124,25 +197,28 @@ function UserEducation() {
               ))}
             </Select>
           </Grid>
-
         </Grid>
       </div>
       <div className="usereducation-btn">
         <Button
           variant="outlined"
-          color="secondary"
-          className="usereducation-clear-btn"
+          className="userabout-edit-btn"
+          onClick={handleEditToggle}
         >
-          Clear
+          {isEditable ? "Cancel" : "Edit"}
         </Button>
         <Button
           variant="contained"
           color="primary"
           className="usereducation-submit-btn"
+          disabled={!isEditable}
+          type="submit"
         >
           Save
         </Button>
       </div>
+      </form>
+      <ToastContainer />
     </div>
   );
 }

@@ -27,8 +27,8 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: left;
-  
+    justify-content: left ;
+    
     gap: 20px;
   }
   .userLife-leftcontent-container {
@@ -43,7 +43,7 @@
   .userLife-icon {
     margin-right: 10px;
     font-size: 15px;
-    color: #333;
+    color: #747272;
   }
   
 .userLife-btn {

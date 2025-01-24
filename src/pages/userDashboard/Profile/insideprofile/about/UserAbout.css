@@ -30,8 +30,9 @@
 }
 
 .userabout-input {
-  background-color: #ffffff;
+  background-color: var(--text-color);
 }
+
 .userabout-btn {
   display: flex;
   justify-content: center;
@@ -75,7 +76,7 @@
 
 /* Style for the label when the input is disabled */
 .disabled-input .MuiInputLabel-root.Mui-disabled {
-  color: black !important; /* Make the label black */
+  color: black !important; 
 }
 
 .userabout-form-control {
@@ -91,5 +92,5 @@
 .userabout-icon {
   margin-right: 10px;
   font-size: 15px;
-  color: #333;
+  color: #747272;
 }
