@@ -17,6 +17,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+//post request
 export const post = async (path, data) => {
   try {
     const response = await api.post(path, data);
@@ -25,6 +26,8 @@ export const post = async (path, data) => {
     throw error.response?.data || error.message;
   }
 };
+
+//get request
 export const get = async (path, params = {}) => {
     try {
       const response = await api.get(path, { params }); 
@@ -33,5 +36,16 @@ export const get = async (path, params = {}) => {
       throw error.response?.data || error.message;
     }
   };
+
+
+  // DELETE request
+export const del = async (path, params = {}) => {
+  try {
+    const response = await api.delete(path, { data: params });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
 
 export default api;
