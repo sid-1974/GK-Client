@@ -39,12 +39,21 @@
   border-radius: 50%;
   margin-right: 10px;
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
   background-color: #888;
   color: var(--text-color);
   font-size: 30px;
   font-weight: bold;
+  object-fit: cover;
+}
+.userSidebar-profile-pic {
+  width: 100%; /* Ensures the image covers the placeholder */
+  height: 100%;
+  object-fit: cover; /* Maintains aspect ratio and fills the placeholder */
+  border-radius: 50%; /* Keeps the image rounded */
+ 
 }
 .userSidebar-user-name {
   width: 100%;

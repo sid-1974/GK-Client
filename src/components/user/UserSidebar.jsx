@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
@@ -9,15 +9,48 @@ import { FaUsersBetweenLines } from "react-icons/fa6";
 import { RiUserSharedFill } from "react-icons/ri";
 import { MdPersonSearch } from "react-icons/md";
 import { useUser } from "../router/userContext/UserContext";
+import { get } from "../../api/api";
 
 import "./UserSidebar.css";
 
 function UserSidebar() {
   const { userData } = useUser();
+  const [userPhoto, setUserPhoto] = useState(null);
+
+  useEffect(() => {
+    const fetchUserPhoto = async () => {
+      try {
+        const response = await get("/user/user-image-details");
+        if (response.success && response.data.length > 0) {
+          setUserPhoto(response.data[0].image); // Assuming response includes `image` key
+        } else {
+          setUserPhoto(null);
+        }
+      } catch (error) {
+        toast.error("Failed to fetch user photo. Please try again.");
+      }
+    };
+
+    fetchUserPhoto();
+  }, [userData]);
+
   return (
     <Drawer className="user-sidebar" variant="permanent" anchor="left">
       <div className="userSidebar-profile-section">
-        <div className="userSidebar-profile-pic-placeholder">{userData.fullName ? userData.fullName.charAt(0).toUpperCase() : "P"}</div>
+        <div className="userSidebar-profile-pic-placeholder">
+         
+          {userPhoto ? (
+            <img
+              src={userPhoto}
+              alt="User Profile"
+              className="userSidebar-profile-pic"
+            />
+          ) : userData.fullName ? (
+            userData.fullName.charAt(0).toUpperCase()
+          ) : (
+            "P"
+          )}
+        </div>
         <div className="UserSidebar-details">
           <Typography variant="body1" className="userSidebar-user-name">
             {userData.fullName}
