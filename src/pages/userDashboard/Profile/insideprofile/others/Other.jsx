@@ -86,14 +86,7 @@ function Other() {
           />
         </div>
         <div className="other-btn">
-          <Button
-            variant="outlined"
-            className="userabout-edit-btn"
-            onClick={handleEditToggle}
-          >
-            {isEditable ? "Cancel" : "Edit"}
-          </Button>
-          <Button
+        <Button
             variant="contained"
             className="other-submit-btn"
             disabled={!isEditable}
@@ -101,6 +94,14 @@ function Other() {
           >
             Save
           </Button>
+          <Button
+            variant="outlined"
+            className="userabout-edit-btn"
+            onClick={handleEditToggle}
+          >
+            {isEditable ? "Cancel" : "Edit"}
+          </Button>
+         
         </div>
       </form>
       <ToastContainer />

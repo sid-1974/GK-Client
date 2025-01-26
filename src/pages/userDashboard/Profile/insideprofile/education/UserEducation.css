@@ -20,25 +20,13 @@
 }
 .usereducation-btn {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end;
+    gap: 10px;
     margin-top: 20px;
-    margin-left:-15%;
+    width: 50%;
   }
   
-  .usereducation-clear-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-transform: none !important;
-    border: 2px solid red !important; /* Matches secondary color */
-    color: red !important; /* Matches secondary color */
-    transition: all 0.3s ease;
-  }
-  
-  .usereducation-clear-btn:hover {
-    background-color: red;
-    color: var(--text-color) !important;
-  }
+
   
   .usereducation-submit-btn {
     padding: 10px 20px;
@@ -53,6 +41,9 @@
   .usereducation-submit-btn:hover {
     background-color: green !important;
     color: var(--text-color) !important; /* Darker shade of primary */
+  }
+  .usereducation-submit-btn:disabled {
+    display: none;
   }
  
   

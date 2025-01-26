@@ -401,14 +401,7 @@ function UserAbout() {
         </div>
       </div>
       <div className="userabout-btn">
-        <Button
-          variant="outlined"
-          className="userabout-edit-btn"
-          onClick={handleEditToggle} 
-        >
-          {isEditable ? "Cancel" : "Edit"}
-        </Button>
-        <Button
+      <Button
           variant="contained"
           color="primary"
           className="userabout-submit-btn"
@@ -416,6 +409,13 @@ function UserAbout() {
            type="submit"
         >
           Save
+        </Button>
+        <Button
+          variant="outlined"
+          className="userabout-edit-btn"
+          onClick={handleEditToggle} 
+        >
+          {isEditable ? "Cancel" : "Edit"}
         </Button>
       </div>
     

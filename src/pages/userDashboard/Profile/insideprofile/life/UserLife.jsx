@@ -21,8 +21,6 @@ function UserLife() {
     skintype: "",
   });
 
-  
-
   useEffect(() => {
     const fetchUserLifeStyleDetails = async () => {
       try {
@@ -76,9 +74,7 @@ function UserLife() {
     setIsEditable((prev) => !prev);
   };
   return (
-    
     <div className="userLife-container">
-      
       <div className="userLife-heading-container">
         <div className="userLife-heading">
           <Typography variant="h5">Life Style</Typography>
@@ -87,8 +83,7 @@ function UserLife() {
           <Typography variant="h5">Appearence</Typography>
         </div>
       </div>
-      <form onSubmit={handleSave} style={{width:"100%"}}>
-
+      <form onSubmit={handleSave} style={{ width: "100%" }}>
         <div className="userLife-content-container">
           <div className="userLife-leftcontent-container">
             <Grid container spacing={2}>
@@ -279,20 +274,19 @@ function UserLife() {
         </div>
         <div className="userLife-btn">
           <Button
-            variant="outlined"
-            className="userabout-edit-btn"
-            onClick={handleEditToggle}
-          >
-            {isEditable ? "Cancel" : "Edit"}
-          </Button>
-          <Button
             variant="contained"
-            
             className="userLife-submit-btn"
             disabled={!isEditable}
             type="submit"
           >
             Save
+          </Button>
+          <Button
+            variant="outlined"
+            className="userabout-edit-btn"
+            onClick={handleEditToggle}
+          >
+            {isEditable ? "Cancel" : "Edit"}
           </Button>
         </div>
       </form>

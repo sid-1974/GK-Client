@@ -76,7 +76,7 @@ function UserSidebar() {
         {/* <hr /> */}
         <ListItem button component={Link} to="/user/profile">
           <FaUserEdit fontSize="large" className="user-dashboard-icons" />
-          <ListItemText primary="Profile Edit" />
+          <ListItemText primary="Profile" />
         </ListItem>
         {/* <hr /> */}
         <ListItem button component={Link} to="/user/my-matches">

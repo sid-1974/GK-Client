@@ -43,27 +43,15 @@
   
 .userPreference-btn {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end;
+    gap: 10px;
     margin-top: 20px;
-    margin-left: 80%;
+   
+  }
+  .userPreference-submit-btn:disabled {
+    display: none;
   }
   
-  .userPreference-clear-btn {
-    width: 70px;
-    height: 40px;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-transform: none !important;
-    border: 2px solid red !important; /* Matches secondary color */
-    color: red !important; /* Matches secondary color */
-    transition: all 0.3s ease;
-  }
-  
-  .userPreference-clear-btn:hover {
-    background-color: red;
-    color: var(--text-color) !important;
-  }
   
   .userPreference-submit-btn {
     width: 70px;

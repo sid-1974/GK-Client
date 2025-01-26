@@ -323,15 +323,9 @@ function UserPreference() {
             </Grid>
           </div>
         </div>
+
         <div className="userPreference-btn">
-          <Button
-            variant="outlined"
-            className="userabout-edit-btn"
-            onClick={handleEditToggle}
-          >
-            {isEditable ? "Cancel" : "Edit"}
-          </Button>
-          <Button
+        <Button
             variant="contained"
             className="userPreference-submit-btn"
             disabled={!isEditable}
@@ -339,6 +333,14 @@ function UserPreference() {
           >
             Save
           </Button>
+          <Button
+            variant="outlined"
+            className="userabout-edit-btn"
+            onClick={handleEditToggle}
+          >
+            {isEditable ? "Cancel" : "Edit"}
+          </Button>
+         
         </div>
       </form>
       <ToastContainer />

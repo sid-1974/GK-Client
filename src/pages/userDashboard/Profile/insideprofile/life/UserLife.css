@@ -48,25 +48,16 @@
   
 .userLife-btn {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end;
+    gap: 10px;
     margin-top: 20px;
-    margin-left: 80%;
+   
+  }
+  .userLife-submit-btn:disabled {
+    display: none;
   }
   
-  .userLife-clear-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-transform: none !important;
-    border: 2px solid red !important; /* Matches secondary color */
-    color: red !important; /* Matches secondary color */
-    transition: all 0.3s ease;
-  }
-  
-  .userLife-clear-btn:hover {
-    background-color: red;
-    color: var(--text-color) !important;
-  }
+
   
   .userLife-submit-btn {
     padding: 10px 20px;

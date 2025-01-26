@@ -35,19 +35,25 @@
 
 .userabout-btn {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
   margin-top: 20px;
-  margin-left: 80%;
+  
 }
+
 
 .userabout-edit-btn {
   padding: 10px 20px;
   font-size: 16px;
+  margin-left: 20% ;
   text-transform: none !important;
   border: 2px solid rgb(21, 0, 255) !important; /* Matches secondary color */
   color: rgb(21, 0, 255)!important; /* Matches secondary color */
   transition: all 0.3s ease;
+}
+.userabout-submit-btn:disabled {
+  display: none;
 }
 
 .userabout-edit-btn:hover {

@@ -200,14 +200,7 @@ function UserEducation() {
         </Grid>
       </div>
       <div className="usereducation-btn">
-        <Button
-          variant="outlined"
-          className="userabout-edit-btn"
-          onClick={handleEditToggle}
-        >
-          {isEditable ? "Cancel" : "Edit"}
-        </Button>
-        <Button
+      <Button
           variant="contained"
           color="primary"
           className="usereducation-submit-btn"
@@ -216,6 +209,14 @@ function UserEducation() {
         >
           Save
         </Button>
+        <Button
+          variant="outlined"
+          className="userabout-edit-btn"
+          onClick={handleEditToggle}
+        >
+          {isEditable ? "Cancel" : "Edit"}
+        </Button>
+        
       </div>
       </form>
       <ToastContainer />
