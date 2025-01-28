@@ -276,14 +276,7 @@ function UserFamily() {
           </div>
         </div>
         <div className="userabout-btn">
-          <Button
-            variant="outlined"
-            className="userabout-edit-btn"
-            onClick={handleEditToggle}
-          >
-            {isEditable ? "Cancel" : "Edit"}
-          </Button>
-          <Button
+        <Button
             variant="contained"
             color="primary"
             className="userabout-submit-btn"
@@ -292,6 +285,14 @@ function UserFamily() {
           >
             Save
           </Button>
+          <Button
+            variant="outlined"
+            className="userabout-edit-btn"
+            onClick={handleEditToggle}
+          >
+            {isEditable ? "Cancel" : "Edit"}
+          </Button>
+         
         </div>
       </form>
       <ToastContainer />

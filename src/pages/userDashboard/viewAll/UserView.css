@@ -44,6 +44,8 @@
         gap: 70px;
         margin: 15px;
         justify-content: center; 
+        flex-wrap: wrap;
+        
       }
     
     
@@ -99,6 +101,9 @@
     }
     .view-more-button-container{
       margin-top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
       
     }
     .user-view-pagination{

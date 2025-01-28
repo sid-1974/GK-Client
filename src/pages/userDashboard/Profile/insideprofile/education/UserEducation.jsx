@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./UserEducation.css";
 import {
   Grid,
@@ -21,17 +21,15 @@ function UserEducation() {
   const { userData } = useUser();
   const [isEditable, setIsEditable] = useState(false);
   const [formData, setFormData] = useState({
-    qualification:"",
-    occupation:"",
-    incomeperannum:"",
-    occupationcountry:"",
+    qualification: "",
+    occupation: "",
+    incomeperannum: "",
+    occupationcountry: "",
   });
 
   const handleEditToggle = () => {
     setIsEditable((prev) => !prev);
   };
-
-
 
   useEffect(() => {
     const fetchUserEducationDetails = async () => {
@@ -63,8 +61,14 @@ function UserEducation() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    const { qualification, occupation, incomeperannum, occupationcountry } = formData;
-    if (!qualification || !occupation || !incomeperannum || !occupationcountry) {
+    const { qualification, occupation, incomeperannum, occupationcountry } =
+      formData;
+    if (
+      !qualification ||
+      !occupation ||
+      !incomeperannum ||
+      !occupationcountry
+    ) {
       return toast.error("All fields are required");
     }
     try {
@@ -75,7 +79,6 @@ function UserEducation() {
       const { success, message } = response;
 
       if (success) {
-       
         toast.success(message);
         setIsEditable(false);
       } else {
@@ -85,7 +88,6 @@ function UserEducation() {
       toast.error("An error occurred. Please try again.");
     }
   };
-  
 
   return (
     <div className="usereducation-container">
@@ -93,131 +95,133 @@ function UserEducation() {
         <Typography variant="h5">Eduction & Occupation</Typography>
       </div>
       <form onSubmit={handleSave}>
-      <div className="usereducation-content-container">
-        <Grid container spacing={2}>
-          {/* qualification -------------------------------------- */}
-          <Grid item xs={12}>
-            <Select
-              displayEmpty
-              value={formData.qualification}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  qualification: e.target.value,
-                }))
-              }
-              IconComponent={() => (
-                <FaChevronDown className="usereducation-icon" />
-              )}
-              className="usereducation-select disabled-input"
-              renderValue={(selected) => selected || "Qualification"}
-              disabled={!isEditable}
-              name="qualification"
-            >
-              {data[4].qualificationValues.map((item, index) => (
-                <MenuItem value={item} key={index}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
-          </Grid>
+        <div className="usereducation-content-container">
+          <Grid container spacing={2}>
+            {/* qualification -------------------------------------- */}
+            <Grid item xs={12}>
+              <Select
+                displayEmpty
+                value={formData.qualification}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    qualification: e.target.value,
+                  }))
+                }
+                IconComponent={() => (
+                  <FaChevronDown className="usereducation-icon" />
+                )}
+                className="usereducation-select disabled-input"
+                renderValue={(selected) => selected || "Qualification"}
+                disabled={!isEditable}
+                name="qualification"
+              >
+                {data[4].qualificationValues.map((item, index) => (
+                  <MenuItem value={item} key={index}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
 
-          {/* Occupation----------------------------------------------------- */}
-          <Grid item xs={12}>
-            <Select
-              displayEmpty
-              value={formData.occupation}
-              onChange={(e) =>
-                setFormData((prev) => ({ ...prev, occupation: e.target.value }))
-              }
-              IconComponent={() => (
-                <FaChevronDown className="usereducation-icon" />
-              )}
-              className="usereducation-select disabled-input"
-              renderValue={(selected) => selected || "Occupation"}
-              disabled={!isEditable}
-              name="occupation"
-            >
-              {data[3].occupationValues.map((item, index) => (
-                <MenuItem value={item} key={index}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
+            {/* Occupation----------------------------------------------------- */}
+            <Grid item xs={12}>
+              <Select
+                displayEmpty
+                value={formData.occupation}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    occupation: e.target.value,
+                  }))
+                }
+                IconComponent={() => (
+                  <FaChevronDown className="usereducation-icon" />
+                )}
+                className="usereducation-select disabled-input"
+                renderValue={(selected) => selected || "Occupation"}
+                disabled={!isEditable}
+                name="occupation"
+              >
+                {data[3].occupationValues.map((item, index) => (
+                  <MenuItem value={item} key={index}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
+            {/* Income Per Annum---------------------------------------------------- */}
+            <Grid item xs={12}>
+              <Select
+                displayEmpty
+                value={formData.incomeperannum}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    incomeperannum: e.target.value,
+                  }))
+                }
+                IconComponent={() => (
+                  <FaChevronDown className="usereducation-icon" />
+                )}
+                className="usereducation-select disabled-input"
+                renderValue={(selected) => selected || "Income Per Annum"}
+                disabled={!isEditable}
+                name="incomeperannum"
+              >
+                {data[2].incomeValues.map((item, index) => (
+                  <MenuItem value={item} key={index}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
+            {/* Occupation Country----------------------------------------------------- */}
+            <Grid item xs={12}>
+              <Select
+                displayEmpty
+                value={formData.occupationcountry}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    occupationcountry: e.target.value,
+                  }))
+                }
+                IconComponent={() => (
+                  <FaChevronDown className="usereducation-icon" />
+                )}
+                className="usereducation-select disabled-input"
+                renderValue={(selected) => selected || "Occupation Country"}
+                disabled={!isEditable}
+                name="occupationcountry"
+              >
+                {data[10].countries.map((item, index) => (
+                  <MenuItem value={item} key={index}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
           </Grid>
-          {/* Income Per Annum---------------------------------------------------- */}
-          <Grid item xs={12}>
-            <Select
-              displayEmpty
-              value={formData.incomeperannum}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  incomeperannum: e.target.value,
-                }))
-              }
-              IconComponent={() => (
-                <FaChevronDown className="usereducation-icon" />
-              )}
-              className="usereducation-select disabled-input"
-              renderValue={(selected) => selected || "Income Per Annum"}
-              disabled={!isEditable}
-              name="incomeperannum"
-            >
-              {data[2].incomeValues.map((item, index) => (
-                <MenuItem value={item} key={index}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
-          </Grid>
-          {/* Occupation Country----------------------------------------------------- */}
-          <Grid item xs={12}>
-            <Select
-              displayEmpty
-              value={formData.occupationcountry}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  occupationcountry: e.target.value,
-                }))
-              }
-              IconComponent={() => (
-                <FaChevronDown className="usereducation-icon" />
-              )}
-              className="usereducation-select disabled-input"
-              renderValue={(selected) => selected || "Occupation Country"}
-              disabled={!isEditable}
-              name="occupationcountry"
-            >
-              {data[10].countries.map((item, index) => (
-                <MenuItem value={item} key={index}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
-          </Grid>
-        </Grid>
-      </div>
-      <div className="usereducation-btn">
-      <Button
-          variant="contained"
-          color="primary"
-          className="usereducation-submit-btn"
-          disabled={!isEditable}
-          type="submit"
-        >
-          Save
-        </Button>
-        <Button
-          variant="outlined"
-          className="userabout-edit-btn"
-          onClick={handleEditToggle}
-        >
-          {isEditable ? "Cancel" : "Edit"}
-        </Button>
-        
-      </div>
+        </div>
+        <div className="usereducation-btn">
+          <Button
+            variant="contained"
+            color="primary"
+            className="usereducation-submit-btn"
+            disabled={!isEditable}
+            type="submit"
+          >
+            Save
+          </Button>
+          <Button
+            variant="outlined"
+            className="userabout-edit-btn"
+            onClick={handleEditToggle}
+          >
+            {isEditable ? "Cancel" : "Edit"}
+          </Button>
+        </div>
       </form>
       <ToastContainer />
     </div>

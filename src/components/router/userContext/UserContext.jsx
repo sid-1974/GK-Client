@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
+import {get} from '../../../api/api'
 
 const UserContext = createContext();
 
@@ -30,6 +31,8 @@ const UserProviderComponent = ({ children }) => {
   const [preferenceData, setPreferenceData] = useState(null);
   const [otherData, setOtherData] = useState(null);
   const [photoData, setPhotoData] = useState(null);
+  const [allUsers, setAllUsers] = useState([]);
+  
 
   const handleRequest = async (requestFn, setData) => {
     try {
@@ -41,37 +44,45 @@ const UserProviderComponent = ({ children }) => {
   };
 
   const fetchAboutData = () =>
-    handleRequest(() => axios.get("/api/user-about-details"), setAboutData);
+    handleRequest(() => get("/user/user-about-details"), setAboutData);
   const fetchFamilyData = () =>
-    handleRequest(() => axios.get("/api/user-family-details"), setFamilyData);
+    handleRequest(() => get("/user/user-family-details"), setFamilyData);
   const fetchEducationData = () =>
-    handleRequest(
-      () => axios.get("/api/user-education-details"),
-      setEducationData
-    );
+    handleRequest(() => get("/user/user-education-details"),setEducationData );
   const fetchLifestyleData = () =>
     handleRequest(
-      () => axios.get("/api/user-lifestyle-details"),
+      () => get("/user/user-lifestyle-details"),
       setLifestyleData
     );
   const fetchPreferenceData = () =>
     handleRequest(
-      () => axios.get("/api/user-preference-details"),
+      () => get("/user/user-preference-details"),
       setPreferenceData
     );
   const fetchOtherData = () =>
-    handleRequest(() => axios.get("/api/user-other-details"), setOtherData);
+    handleRequest(() => get("/user/user-other-details"), setOtherData);
   const fetchPhotoData = () =>
-    handleRequest(() => axios.get("/api/user-image-details"), setPhotoData);
+    handleRequest(() => get("/user/user-image-details"), setPhotoData);
 
   const deletePhoto = async (photoId) => {
     try {
-      await axios.delete("/api/user-delete-image", { data: { id: photoId } });
+      await delete("/user/user-delete-image", { data: { id: photoId } });
       fetchPhotoData();
     } catch (err) {
       console.error("Failed to delete photo:", err);
     }
   };
+  const fetchAllUsers = async () => {
+    try {
+      const response = await get("/user/alluser-details");
+      setAllUsers(response.data);
+    } catch (error) {
+      console.error("Failed to fetch all user details:", error);
+    }
+  };
+  
+
+ 
 
   useEffect(() => {
     fetchAboutData();
@@ -81,6 +92,7 @@ const UserProviderComponent = ({ children }) => {
     fetchPreferenceData();
     fetchOtherData();
     fetchPhotoData();
+    fetchAllUsers();
   }, []);
 
   return (
@@ -104,6 +116,7 @@ const UserProviderComponent = ({ children }) => {
         fetchOtherData,
         fetchPhotoData,
         deletePhoto,
+        allUsers,
       }}
     >
       {children}

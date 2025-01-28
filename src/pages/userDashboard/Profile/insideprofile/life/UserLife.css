@@ -64,13 +64,13 @@
     font-size: 16px;
     text-transform: none !important;
     background-color: var(--text-color) !important;
-    border: 2px solid green !important; /* Matches primary color */
-    color: green !important;
+    border: 2px solid var(--background-color) !important; /* Matches primary color */
+    color: var(--background-color) !important;
     transition: all 0.3s ease;
   }
   
   .userLife-submit-btn:hover {
-    background-color: green !important;
+    background-color: var(--background-color) !important;
     color: var(--text-color) !important; /* Darker shade of primary */
   }
  

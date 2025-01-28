@@ -27,7 +27,7 @@ function UserSidebar() {
           setUserPhoto(null);
         }
       } catch (error) {
-        toast.error("Failed to fetch user photo. Please try again.");
+        error("Failed to fetch user photo. Please try again.");
       }
     };
 

@@ -48,8 +48,8 @@
   font-size: 16px;
   margin-left: 20% ;
   text-transform: none !important;
-  border: 2px solid rgb(21, 0, 255) !important; /* Matches secondary color */
-  color: rgb(21, 0, 255)!important; /* Matches secondary color */
+  border: 2px solid #0062cc !important; /* Matches secondary color */
+  color: #0062cc !important; /* Matches secondary color */
   transition: all 0.3s ease;
 }
 .userabout-submit-btn:disabled {
@@ -57,7 +57,7 @@
 }
 
 .userabout-edit-btn:hover {
-  background-color: rgb(21, 0, 255);
+  background-color: #0062cc;
   color: var(--text-color) !important;
 }
 
@@ -66,13 +66,13 @@
   font-size: 16px;
   text-transform: none !important;
   background-color: var(--text-color) !important;
-  border: 2px solid green !important; /* Matches primary color */
-  color: green !important;
+  border: 2px solid var(--background-color) !important; /* Matches primary color */
+  color: var(--background-color) !important;
   transition: all 0.3s ease;
 }
 
 .userabout-submit-btn:hover {
-  background-color: green !important;
+  background-color: var(--background-color) !important;
   color: var(--text-color) !important; /* Darker shade of primary */
 }
 .disabled-input .MuiInputBase-input.Mui-disabled {
